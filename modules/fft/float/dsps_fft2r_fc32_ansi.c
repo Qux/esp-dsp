@@ -29,7 +29,7 @@ uint8_t dsps_fft2r_mem_allocated = 0;
 
 uint16_t *dsps_fft2r_ram_rev_table = NULL;
 
-unsigned short reverse(unsigned short x, unsigned short N, int order);
+unsigned short dsps_reverse(unsigned short x, unsigned short N, int order);
 
 esp_err_t dsps_fft2r_init_fc32(float *fft_table_buff, int table_size)
 {
@@ -138,7 +138,7 @@ esp_err_t dsps_fft2r_fc32_ansi_(float *data, int N, float *w)
 }
 
 
-unsigned short reverse(unsigned short x, unsigned short N, int order)
+unsigned short dsps_reverse(unsigned short x, unsigned short N, int order)
 {
     unsigned short b = x;
 

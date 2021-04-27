@@ -23,7 +23,7 @@ int dsps_fft_w_table_sc16_size;
 uint8_t dsps_fft2r_sc16_initialized = 0;
 uint8_t dsps_fft2r_sc16_mem_allocated = 0;
 
-unsigned short reverse(unsigned short x, unsigned short N, int order);
+unsigned short dsps_reverse(unsigned short x, unsigned short N, int order);
 
 static const int add_rount_mult = 0x7fff;
 static const int mult_shift_const = 0x7fff; // Used to shift data << 15
@@ -297,7 +297,7 @@ esp_err_t dsps_cplx2real_sc16_ansi(int16_t *data, int N)
         f2k.re = fpk.re - fpnk.re;
         f2k.im = fpk.im + fpnk.im;
 
-        int table_index = reverse(k, N, order);
+        int table_index = dsps_reverse(k, N, order);
 
         // float c = -dsps_fft_w_table_fc32[table_index*2+1];
         // float s = -dsps_fft_w_table_fc32[table_index*2+0];
